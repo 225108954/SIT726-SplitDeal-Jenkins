@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>User Profile & Deals</title>
+  <link rel="stylesheet" href="../css/profilepage.css">
+  <link rel="stylesheet" href="./css/styles.css" />
+  <script src="../js/loadFooter.js"></script>
+  <style>
+    .profile-container {
+      position: relative;
+      display: inline-block;
+    }
+    .profile-icon {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #555;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 45px;
+      right: 0;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      border-radius: 5px;
+      z-index: 1000;
+    }
+    .dropdown a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: black;
+    }
+    .dropdown a:hover {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+
+<body>
+    <header class="header">
+      <div class="header__menu">
+        <nav id="navbar" class="header__nav collapse">
+          <ul class="header__elenco">
+            <li class="header__el">
+              <a href="/index.html" class="header__link">Home</a>
+            </li>
+            <li class="header__el"><a href="/views/grouplisting.html" class="header__link">Groups</a></li>
+            <li class="header__el">
+              <a href="/views/dealsDetails.html" class="header__link">Deals</a>
+            </li>
+            <li class="header__el">
+              <a href="/views/aboutus.html" class="header__link">About Us</a>
+            </li>
+            <li class="header__el" id="loginMenuItem">
+              <a href="/views/login.html" class="header__link">Login</a>
+            </li>
+            <li class="header__el" id="profileMenu" style="display: none">
+              <div class="profile-container">
+                <div id="profileIcon" class="profile-icon">U</div>
+                <div class="dropdown" id="profileDropdown">
+                  <a href="/views/profilepage.html">Profile</a>
+                  <a href="#" id="logoutBtn">Logout</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+  <main class="main-grid">
+    <!-- left column: profile -->
+    <section class="profile-col">
+      <div class="profile-card">
+        <div class="profile-banner"></div>
+        <div class="profile-avatar"></div>
+        <h2 class="profile-name" id="profileName">User</h2>
+        <p class="profile-bio">Passionate about crafting scalable web applications and seamless user experiences.</p>
+        <div class="profile-actions">
+        </div>
+      </div>
+    </section>
+
+    <!-- right column: deals -->
+    <section class="deals-col">
+      <h1 class="deals-title">Welcome to Your Group Deals</h1>
+      <p class="deals-intro">
+        Below you'll find all your <strong>active</strong> and <strong>completed</strong> group deals.
+        Stay updated with your current collaborations and take a nostalgic look at the awesome group activities you've
+        completed in the past.
+      </p>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="current">Current Groups</button>
+        <button class="tab-btn" data-tab="past">Past Deals</button>
+      </div>
+
+      <div class="tab-panels">
+        <!-- Current -->
+        <div id="current" class="tab-panel">
+          <div class="cards-grid">
+            <!-- repeat these cards as needed -->
+            <div class="group-card">
+              <img src="https://res.cloudinary.com/du5br7g8b/image/upload/v1742821088/e5sxqakk7aumxscyrvdz.png" alt="">
+              <h3>Weekly Grocery Split</h3>
+              <p>4 members • Started Apr 10, 2025</p>
+            </div>
+            <div class="group-card">
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/010/994/276/non_2x/adidas-logo-symbol-clothes-design-icon-abstract-football-illustration-free-vector.jpg"
+                alt="">
+              <h3>May Rent Share</h3>
+              <p>3 members • Started May 1, 2025</p>
+            </div>
+            <div class="group-card">
+              <img src="https://res.cloudinary.com/du5br7g8b/image/upload/v1742100139/qfqgtk6iymk6yoxuwacg.png" alt="">
+              <h3>Friday Dinner Out</h3>
+              <p>5 members • Started May 15, 2025</p>
+            </div>
+            <div class="group-card">
+              <img src="https://www.svgrepo.com/show/303173/nike-3-logo.svg" alt="">
+              <h3>Office Supplies</h3>
+              <p>6 members • Started May 5, 2025</p>
+            </div>
+          </div>
+        </div>
+        <!-- Past -->
+        <div id="past" class="tab-panel hidden">
+          <div class="cards-grid">
+            <div class="group-card">
+              <img src="https://1000logos.net/wp-content/uploads/2021/06/Netflix-logo.png" alt="">
+              <h3>Movie Night</h3>
+              <p>5 members • Completed Mar 20, 2025</p>
+              <p class="offer"><strong>Offer:</strong> Free Popcorn & Streaming Pass</p>
+            </div>
+            <div class="group-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Tourism_Australia_logo.svg" alt="">
+              <h3>Phillip Island Trip</h3>
+              <p>6 members • Completed Feb 15, 2025</p>
+              <p class="offer"><strong>Offer:</strong> Free Penguin Parade Entry</p>
+            </div>
+            <div class="group-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Ticketmaster_wordmark.svg" alt="">
+              <h3>Concert Tickets</h3>
+              <p>3 members • Completed Jan 30, 2025</p>
+              <p class="offer"><strong>Offer:</strong> 20% Off Future Bookings</p>
+            </div>
+            <div class="group-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Weber_logo.svg" alt="">
+              <h3>Weekend BBQ</h3>
+              <p>4 members • Completed Apr 2, 2025</p>
+              <p class="offer"><strong>Offer:</strong> Free Grill Rental & Gift Card</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <h3>SplitDeal</h3>
+      <p>We're part of the <strong>Deakin Uni</strong> family</p>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="social-icon">f</i></a>
+        <a href="#" aria-label="Twitter"><i class="social-icon">t</i></a>
+        <a href="#" aria-label="Instagram"><i class="social-icon">ig</i></a>
+        <a href="#" aria-label="LinkedIn"><i class="social-icon">in</i></a>
+      </div>
+    </div>
+    
+    <div class="footer-links">
+      <div class="links-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Groups</a></li>
+          <li><a href="#">Deals</a></li>
+          <li><a href="#">Profile</a></li>
+        </ul>
+      </div>
+      
+      <div class="links-column">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2025 IT Labs. All rights reserved.</p>
+  </div>
+</footer>
+<!-- ========== END FOOTER ========== -->
+  <script src="/js/profile.js"></script>
+  <script src="/js/auth.js"></script>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/public/js/mainSocket.js"></script>
+  <script>
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Activate button
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    // Show panel
+    const tab = btn.getAttribute('data-tab');
+    document.querySelectorAll('.tab-panel').forEach(panel => {
+      panel.id === tab 
+        ? panel.classList.remove('hidden') 
+        : panel.classList.add('hidden');
+    });
+  });
+});
+
+  </script>
+</body>
+
+</html>

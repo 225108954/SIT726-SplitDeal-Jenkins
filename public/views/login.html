@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Authentication</title>
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .profile-container {
+      position: relative;
+      display: inline-block;
+    }
+    .profile-icon {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #555;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 45px;
+      right: 0;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      border-radius: 5px;
+      z-index: 1000;
+    }
+    .dropdown a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: black;
+    }
+    .dropdown a:hover {
+      background: #f0f0f0;
+    }
+  </style>
+  <link rel="stylesheet" href="./css/styles.css" />
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__container">
+      <div class="header__logo">
+        <img class="header__img" src="/images/split-deal-logo.png" height="40" width="170" />
+        <h1 class="header__title"></h1>
+      </div>
+      <div class="header__menu">
+        <nav id="navbar" class="header__nav collapse">
+          <ul class="header__elenco">
+            <li class="header__el"><a href="/index.html" class="header__link">Home</a></li>
+            <li class="header__el"><a href="/views/grouplisting.html" class="header__link">Groups</a></li>
+            <li class="header__el"><a href="/views/dealsDetails.html" class="header__link">Deals</a></li>
+            <li class="header__el">
+              <a href="/views/aboutus.html" class="header__link">About Us</a>
+            </li>
+            <li class="header__el" id="loginMenuItem"><a href="/views/login.html" class="header__link">Login</a></li>
+            <li class="header__el" id="profileMenu" style="display: none;">
+              <div class="profile-container">
+                <div id="profileIcon" class="profile-icon">U</div>
+                <div class="dropdown" id="profileDropdown">
+                  <a href="/views/profilepage.html">Profile</a>
+                  <a href="#" id="logoutBtn">Logout</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="main_body">
+    <form id="authForm" class="form">
+      <h2 id="formTitle">Sign In</h2>
+
+      <!-- Name field only for Signup -->
+      <div class="flex-column field-group" id="nameField" style="display: none;">
+        <label>Name</label>
+        <div class="inputForm">
+          <input type="text" id="name" class="input" placeholder="Enter your Name" />
+        </div>
+      </div>
+
+      <div class="flex-column field-group">
+        <label>Email</label>
+        <div class="inputForm">
+          <input type="email" id="email" class="input" placeholder="Enter your Email" required />
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="flex-column field-group">
+        <label>Password</label>
+        <div class="inputForm">
+          <input type="password" id="password" class="input" placeholder="Enter your Password" required minlength="6" />
+        </div>
+      </div>
+
+      <!-- Confirm Password only for Signup -->
+      <div class="flex-column field-group" id="confirmField" style="display: none;">
+        <label>Confirm Password</label>
+        <div class="inputForm">
+          <input type="password" id="confirmPassword" class="input" placeholder="Confirm your Password" />
+        </div>
+      </div>
+
+      <div class="flex-row">
+        <input type="checkbox" id="rememberMe" />
+        <label for="rememberMe">Remember me</label>
+      </div>
+
+      <button type="submit" class="button-submit" id="submitBtn">Sign In</button>
+      <p class="p">
+        <span id="toggleText">Don't have an account?</span>
+        <span class="span" id="toggleLink">Sign Up</span>
+      </p>
+      <div id="errorMessage" style="color: red; display: none;"></div>
+
+    </form>
+  </div>
+  <!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <h3>SplitDeal</h3>
+      <p>We're part of the <strong>Deakin Uni</strong> family</p>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="social-icon">f</i></a>
+        <a href="#" aria-label="Twitter"><i class="social-icon">t</i></a>
+        <a href="#" aria-label="Instagram"><i class="social-icon">ig</i></a>
+        <a href="#" aria-label="LinkedIn"><i class="social-icon">in</i></a>
+      </div>
+    </div>
+    
+    <div class="footer-links">
+      <div class="links-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Groups</a></li>
+          <li><a href="#">Deals</a></li>
+          <li><a href="#">Profile</a></li>
+        </ul>
+      </div>
+      
+      <div class="links-column">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2025 IT Labs. All rights reserved.</p>
+  </div>
+</footer>
+<!-- ========== END FOOTER ========== -->
+
+   
+  </div>
+</footer>
+  <script src="/js/auth.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/public/js/mainSocket.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleLink = document.getElementById('toggleLink');
+      const toggleText = document.getElementById('toggleText');
+      const formTitle = document.getElementById('formTitle');
+      const nameField = document.getElementById('nameField');
+      const confirmField = document.getElementById('confirmField');
+      const submitBtn = document.getElementById('submitBtn');
+      const errorMessage = document.getElementById('errorMessage');
+  
+      let isSignIn = true;
+  
+      toggleLink.addEventListener('click', () => {
+        isSignIn = !isSignIn;
+  
+        if (isSignIn) {
+          formTitle.textContent = 'Sign In';
+          nameField.style.display = 'none';
+          confirmField.style.display = 'none';
+          submitBtn.textContent = 'Sign In';
+          toggleText.textContent = "Don't have an account?";
+          toggleLink.textContent = 'Sign Up';
+        } else {
+          formTitle.textContent = 'Sign Up';
+          nameField.style.display = 'block';
+          confirmField.style.display = 'block';
+          submitBtn.textContent = 'Sign Up';
+          toggleText.textContent = 'Already have an account?';
+          toggleLink.textContent = 'Sign In';
+        }
+  
+        // Clear error message on toggle
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+      });
+  
+      submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+  
+        const nameInput = document.getElementById('name');
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const confirmPassword = confirmPasswordInput ? confirmPasswordInput.value.trim() : '';
+  
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+  
+        if (!email || !password || (!isSignIn && (!nameInput.value.trim() || !confirmPassword))) {
+          errorMessage.textContent = 'Please enter all required fields.';
+          errorMessage.style.display = 'block';
+          return;
+        }
+  
+        if (!isSignIn && password !== confirmPassword) {
+          errorMessage.textContent = 'Passwords do not match.';
+          errorMessage.style.display = 'block';
+          return;
+        }
+  
+        // Submit logic goes here (fetch/axios/etc.)
+        console.log('Form submitted');
+      });
+    });
+  </script>
+  
+  
+</body>
+
+</html>
